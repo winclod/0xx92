@@ -5,4 +5,4 @@ I am passionate about decentralised applications and blockchain technology. Cons
 
 
 ## ⚡ Interesting Facts
-When I'm not coding, you might find me skiing 🎿, cycling 🚴‍♂️, climbing 🏔️, hiking 🚶‍♂️, travelling 🌍, play badminton 🏸.
+When not coding, you may find me skiing 🎿, cycling 🚴‍♂️, climbing 🏔️, hiking 🚶‍♂️, travelling 🌍, playing badminton 🏸. Of course, in the future you will see me involved in more sports.
