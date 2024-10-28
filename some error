@@ -1,2 +1,0 @@
-1. nonce already used
-原因: ethers第三方库发送交易后重新发送一笔相同的交易产生的error,该error信息与节点客户端error信息不同
