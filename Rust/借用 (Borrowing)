@@ -1,0 +1,71 @@
+fn main() {
+    // 不可变借用
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1);    // 借用 s1
+    println!("Length of '{}' is {}", s1, len);        //输出 Length of 'hello' is 5, 其实就是去获取s1字符串的长度
+
+    // 可变借用
+    let mut s2 = String::from("hello");  //需要在变量前声明mut,否则不可变借用
+    change(&mut s2);                    // 可变借用
+    println!("Changed string: {}", s2);       //输出 hello world,  就是python里面的拼接
+}
+
+// 借用示例
+fn calculate_length(s: &String) -> usize {  // &String 表示借用
+    s.len()
+}   // 这里 s 离开作用域，但因为它没有所有权，所以没问题
+这里的各个部分含义：
+&String: 借用一个 String 类型的引用
+-> usize: 返回一个无符号整数类型(usize)
+s.len(): 计算字符串长度并返回
+
+// 可变借用示例
+fn change(s: &mut String) {
+    s.push_str(" world");
+}
+
+
+fn main() {
+    let s2 = String::from("hello");        // 不可变变量
+    // change(&mut s2);                    // 错误！不能对不可变变量创建可变借用
+    
+    let mut s2 = String::from("hello");    // 正确：声明为可变变量
+    change(&mut s2);                       // 正确：创建可变借用
+    println!("{}", s2);                    // 输出: hello world
+}
+
+fn change(s: &mut String) {
+    s.push_str(" world");
+}
+
+// 更多例子
+fn main() {
+    // 错误示范
+    let s = String::from("hello");
+    // let r = &mut s;     // 错误：不能从不可变变量创建可变引用
+
+    // 正确示范
+    let mut s = String::from("hello");
+    let r = &mut s;        // 正确：变量和引用都是可变的
+    r.push_str(" world");
+    println!("{}", s);     // 输出: hello world
+}
+
+
+
+
+借用生活中的例子
+
+fn main() {
+
+    let iphone = String::from("iphone");       //这相当于你有iphone的完全使用权
+    brow(&iphone)                            //这个brow来向你借用iphone,如果要取代iphone的使用权限,则不带&
+    println!("{}",iphone);                    //这里最终还是你的iphone
+
+}
+
+fn  brow(s: &String) {
+    println!("借用你的,{}",s)                    //这里是借用了iphone,使用完后归还iphone
+                                                //如果要取代iphone的使用权限,则不带&
+}
+

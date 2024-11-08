@@ -1,0 +1,17 @@
+// match 匹配
+match x {
+    0 => println!("零"),
+    1 | 2 => println!("一或二"),
+    3..=5 => println!("三到五"),
+    _ => println!("其他"),
+}
+
+// if let 简化匹配
+if let Some(x) = option_value {
+    println!("值是 {}", x);
+}
+
+// while let 循环匹配
+while let Some(x) = stack.pop() {
+    println!("值是 {}", x);
+}

@@ -1,0 +1,21 @@
+// T 是类型参数
+fn print_type<T: Display>(x: T) {
+    println!("{}", x);
+}
+
+// 特征（类似接口）
+trait Summary {
+    fn summarize(&self) -> String;
+}
+
+// 实现特征
+impl Summary for String {
+    fn summarize(&self) -> String {
+        format!("{}", self)
+    }
+}
+
+// 特征约束
+fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}

@@ -1,0 +1,20 @@
+// ? 操作符 - 错误传播
+fn read_file() -> Result<String, io::Error> {
+    let mut s = String::new();
+    File::open("hello.txt")?.read_to_string(&mut s)?;
+    Ok(s)
+}
+
+// Result 类型
+fn divide(a: i32, b: i32) -> Result<i32, String> {
+    if b == 0 {
+        Err(String::from("除以零错误"))
+    } else {
+        Ok(a / b)
+    }
+}
+
+// Option 类型
+fn find_char(s: &str, c: char) -> Option<usize> {
+    s.find(c)
+}

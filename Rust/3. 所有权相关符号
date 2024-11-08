@@ -1,0 +1,20 @@
+fn main() {
+    // 移动所有权
+    let s1 = String::from("hello");
+    let s2 = s1;                 // s1 的所有权移动到 s2
+    
+    // 克隆（深拷贝）
+    let s3 = String::from("hello");
+    let s4 = s3.clone();         // 创建完整副本
+    
+    // 引用（借用）
+    let s5 = String::from("hello");
+    let r1 = &s5;               // 不可变借用
+    let mut s6 = String::from("hello");
+    let r2 = &mut s6;          // 可变借用
+}
+
+// 函数参数中的所有权
+fn take_ownership(s: String) {}  // 获取所有权
+fn borrow_string(s: &String) {}  // 借用
+fn mut_borrow(s: &mut String) {} // 可变借用

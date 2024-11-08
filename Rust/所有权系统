@@ -1,0 +1,43 @@
+fn main() {
+    // 基本所有权规则
+    let s1 = String::from("hello");  // s1 拥有这个字符串
+    let s2 = s1;                     // 所有权移动到 s2   _表示有意未使用的变量,这样就不会输出warning
+    // let _ = s1                    // 完全忽略s1这个值
+    println!("{:#?}", s2);           // 错误！s1 已经失效
+
+    // 克隆避免所有权转移
+    let s3 = String::from("hello");
+    let s4 = s3.clone();            // 深度复制
+    println!("s3: {}, s4: {}", s3, s4); // 都可以使用
+}
+
+// 函数中的所有权
+fn process_string(s: String) {     // 获取所有权
+    println!("{}", s);
+}             // s 在这里被释放
+
+
+fn main() {
+    let s1 = String::from("hello");
+    let num = 42;
+    println!("{}", s1);         // 基本打印
+    println!("{:?}", s1);       // Debug 格式打印
+    println!("{s1}");          // 命名参数打印（Rust 2021）
+    println!("值是: {}", s1);   // 带文本的打印
+    println!("{0} {1}", s1, num); // 多个值打印
+}
+
+
+fn main() {
+    let s1 = String::from("hello");
+    println!("{}", s1);        // Display 特征
+    println!("{:?}", s1);      // Debug 特征
+    println!("{:#?}", s1);     // 美化的 Debug 输出
+}
+
+
+println! 是一个宏，需要一个格式化字符串作为第一个参数
+
+{} 是占位符，表示如何格式化输出
+
+s1 作为参数填充到占位符中
